@@ -1,0 +1,21 @@
+.violeta {
+    background-color: #8A2BE2 !important; 
+    color: white ;           
+}
+.fond-principal{
+    display: flex;
+    flex-direction: row;
+    min-height: 100vh;
+    width: 100%;
+}
+.main-contend{
+    flex-grow: 1;       
+    padding: 20px;    
+    background-color: #f8f9fa;
+    overflow-y: auto; 
+}
+app-navbar{
+    width: 250px;      
+    flex-shrink: 0;    
+    background-color: #1e1e24;
+}

@@ -1,0 +1,40 @@
+.fondo-detalle{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: "Miranda Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 400;
+    font-style: normal;
+}
+.sub-cont{
+    width: 70vw;
+    height: 90vh;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+}
+.cont-icon{
+    width: 100%;
+    justify-content: flex-start;
+}
+.tit{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+mat-icon{
+    justify-content: flex-start;
+}
+.text{
+    width: 90%;
+    height: 75vh;
+}
+button{
+    border: none;
+    background-color: none;
+}

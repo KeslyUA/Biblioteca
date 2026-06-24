@@ -1,0 +1,26 @@
+.fondo{
+    display: block;
+    text-align: center;
+
+}
+    
+img{
+    width: 70px;
+    height: 70px;
+    border-radius: 50%;
+    overflow: hidden; 
+}
+.div-search{
+    width: 100%;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-bottom: 5px;
+    cursor: pointer;
+    background-color: #275e98;
+    color: #000000;
+    display: flex;
+    place-items: center;
+    font-size: 20px;
+    gap: 40px;
+    padding-left: 30px;
+}

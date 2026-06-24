@@ -1,0 +1,135 @@
+<div class="fondo-devolucion">
+    <h2 class="global">Devolucion de Libro</h2>
+    <div class="resultado">
+        <div class="cont">
+            <div class="sup-div">
+                <mat-form-field appearance="outline" class="filtro">
+                    <mat-icon matPrefix>person</mat-icon>
+                    <input matInput type="text" placeholder="DNI" [(ngModel)]="dni">
+                </mat-form-field>
+                <button matButton="filled" class="buscar" color="primary" (click)="buscarUsuario()">Buscar <mat-icon matPrefix>search</mat-icon></button>
+            </div>
+            
+            <div class="division">
+                <div class="nombre">
+                    <p class="cuerpo">{{!filtrado ? 'Nombre de usuario' : filtrado.nombre}}</p>
+                </div>
+                <div class="anotacion">Lista de libros prestados:</div>
+                <div class="tarjeta-libro">
+                    @if (!filtrado) {
+                    <div >
+                        <mat-icon class="libro">book</mat-icon> <mat-icon class="info">sort</mat-icon>
+                    </div>
+                    <div >
+                        <mat-icon class="libro">book</mat-icon> <mat-icon class="info">sort</mat-icon>
+                    </div>
+                    <div >
+                        <mat-icon class="libro">book</mat-icon> <mat-icon class="info">sort</mat-icon>
+                    </div>
+                }@else {
+                    
+                        @for (libro of filtrado?.libros; track libro?.id) {
+                        <div (click)="seleccionar(libro.id,libro)"  >
+                            <div class="seccion-imagen" >
+                                 <img [src]="libro.imagen" alt="libro" >
+                            
+                            </div>
+                            
+                               
+                            <div class="info-texto">
+                                <span>Titulo: {{libro.nombreLibro}}</span>
+                                <span>Autor: {{libro.autor}}</span>
+                            </div>
+  
+                        </div>
+                        }
+                    
+                }
+                </div>
+            </div>
+            <div class="contador">
+                <b>RESUMEN</b>
+                <span>Tu resumen de libros a devolver: {{filtrado?.libros?.length}}</span>
+                <span>Fecha de devolucion: {{filtrado?.fechaEntrega | date:'dd/MM/yyyy'}}</span>
+            </div>
+            
+        </div>
+        <div class="confirmacion">
+            <div class="conf-titulo">
+               <p >Devolver libro prestado:</p> 
+            </div>
+            <div class="conf-cuerpo">
+                 @if (libroSeleccionado) {
+                <div class="seleccionado">
+                    
+                   
+                        <div class="lib-selec"><img [src]="libroSeleccionado.imagen"></div>
+                        <div>
+                            <p>Libro seleccionado:</p>
+
+                            <h3>{{libroSeleccionado.nombreLibro}}</h3>
+                        </div>
+                    
+                </div>
+                <div class="def">
+                    <p>CONFIRMAR:</p>
+                    <span>Titulo: {{libroSeleccionado.nombreLibro}}</span>
+                    <span>Tipo: {{libroSeleccionado.tipo}}</span>
+                    <span>Autor: {{libroSeleccionado.autor}}</span>
+                    <mat-form-field appearance="outline">
+                        <mat-label>Estado de libro</mat-label>
+                        <mat-select [(value)]="estadoLibro">
+                            <mat-option value="1">Buen estado</mat-option>
+                            <mat-option value="2">Mal estado</mat-option>
+                            <mat-option value="3">Perdido</mat-option>
+                        </mat-select>
+                    </mat-form-field>
+                </div>
+                }@else {
+                    <div class="seleccionado">
+                        <div class="lib"><mat-icon>book</mat-icon></div>
+                        <div>
+                            <p>Libro seleccionado:</p>
+                            <p>no se selecciono libro</p>
+                        </div>
+                        
+
+                    </div>
+                    <div>
+                        <p>CONFIRMAR:</p>
+                        <span>Titulo:</span><p></p>
+                        <span>Tipo:</span><p></p>
+                        <span>Autor:</span><p></p>
+                        <mat-form-field appearance="outline">
+                        <mat-label>Estado de libro</mat-label>
+                        <mat-select disabled="true" >
+                            <mat-option value="dni">DNI</mat-option>
+                            <mat-option value="ce">Carnet de Extranjería</mat-option>
+                            <mat-option value="pasaporte">Pasaporte</mat-option>
+                        </mat-select>
+                        </mat-form-field>
+                    </div>
+                }
+                @if(siguiente == false){
+                    <button matButton="filled" class="buscar" color="primary" 
+                    [disabled]="libroSeleccionado && libro==false ? false:true" 
+                    (click)="enviarEstado(libroSeleccionado!.id,estadoLibro)">Confirmar 
+                    <mat-icon matPrefix>check</mat-icon>
+                    </button>
+                }@else {
+                    <button matButton="filled" color="accent" (click)="procesar()">
+                    Continuar
+                    </button>
+                }
+                 
+                
+                
+            </div>
+            
+            
+        </div>
+        
+
+    </div>
+
+</div>

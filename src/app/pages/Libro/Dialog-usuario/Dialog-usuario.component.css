@@ -1,0 +1,12 @@
+.btn-buscar{
+  background-color: rgb(218, 203, 231) !important;
+  color: rgb(0, 0, 0);
+}
+.btn-guardar{
+  background-color: rgb(75, 244, 128) !important;
+  color: white !important;
+}
+.btn-cancelar{
+  background-color: rgb(244, 75, 75) !important;
+  color: white !important;
+}

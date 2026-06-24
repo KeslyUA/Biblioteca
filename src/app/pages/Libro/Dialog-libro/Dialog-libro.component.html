@@ -1,0 +1,34 @@
+<div style="display: flex;flex-direction: column;place-items: center;">
+    <h2 >{{data.id ? 'Actualizar Libro' : 'Registrar Libro'}}</h2>
+    <div style="display: flex;text-align: center;">
+      <mat-dialog-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre de libro</mat-label>
+          <input matInput placeholder="nombre" [(ngModel)]="data.nombreLibro">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>tipo clasificacion</mat-label>
+          <input matInput placeholder="tipo" [(ngModel)]="data.tipo">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Autor</mat-label>
+          <input matInput placeholder="autor" [(ngModel)]="data.autor">
+        </mat-form-field>
+        
+          <mat-form-field appearance="fill">
+            <mat-label>URL de imagen</mat-label>
+            <input matInput [(ngModel)]="data.imagen">
+          </mat-form-field>
+                  <p>imagen: {{data.imagen}}</p>
+
+       
+      </mat-dialog-content>
+    </div>
+
+<mat-dialog-actions>
+  <button mat-button class="btn-cancelar" (click)="cerrarDialog()">Cancelar</button>
+  <button mat-raised-button class="btn-guardar" (click)="guardar()" cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>
+</div>

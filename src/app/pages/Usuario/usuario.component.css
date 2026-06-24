@@ -1,0 +1,85 @@
+.contenedor{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    place-items: center;
+    place-content: center;
+    gap: 5px;
+    flex-direction: column;
+}
+.contenedor div{
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.sub-contenedor{
+    min-height: 400px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+.example-form{
+    min-width: 100%;
+    max-width: 300px;
+    width: 100%;
+    display: grid;
+    gap:10px;
+    grid-template-columns: repeat(3, 1fr);
+    align-items: center;
+}
+
+.icn{
+  display: flex;
+  justify-content: center;
+}
+
+.btn-buscar{
+  width: 200px;
+  background-color: rgb(160, 158, 161) !important;
+  color: rgb(255, 255, 255) !important;
+  margin-top: 10px;
+  display: flex;
+  gap: 20px;
+}
+
+.btn-guardar{
+  width: 250px;
+  color: rgb(255, 255, 255) !important;
+}
+mat-form-field{
+    width: 90%;
+}
+.formulario{
+  padding: 20px;
+}
+form div{
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  justify-content: center;
+}
+.div-buscar{
+  display: flex;
+  flex-direction: column;
+  
+}
+.div-buscar p{
+  margin: 0;
+  color: rgb(94, 93, 92);
+}
+table{
+  min-width: 1200px;
+  height: 100%;
+}
+.filter{
+  width: 300px;
+}
+section{
+  display: flex;
+  gap: 10px;
+}
+.celda-centrada {
+  text-align: center !important;
+  justify-content: center !important;
+}

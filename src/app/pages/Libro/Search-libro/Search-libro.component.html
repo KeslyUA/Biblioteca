@@ -1,0 +1,22 @@
+<div class="fondo">
+    <h2 >Busqueda de Libros</h2>
+      <mat-dialog-content style="width: 100%;">
+        @for (libro of data.libros; track libro.idLibro) {
+
+            <button class="div-search" (click)="seleccionarLibro(libro)" >
+                <img [src]="libro.imagen">
+                <div>
+                    <p>{{libro.nombreLibro}}</p>
+                    <p class="autor">Autor:{{libro.autor }}</p>
+                </div>
+                
+            
+            </button>
+        }@empty {
+            <p>No hay libros</p>
+        }
+        
+        
+
+      </mat-dialog-content>
+</div>

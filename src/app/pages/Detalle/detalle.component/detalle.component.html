@@ -1,0 +1,32 @@
+<div class="fondo-detalle">
+    <div class="sub-cont">
+        <div class="cont-icon">
+           <button routerLink="/reporte"><mat-icon>arrow_back</mat-icon> </button> 
+        </div>
+        <div class="tit">
+            <h1>Informacion de prestamo</h1>
+        </div>
+        
+        <div class="text">
+            <h2>Estado:</h2><p>{{estado==true ? 'Activo' :'Moroso'}}</p>
+            <h2>Nombre y apellido:</h2><p>{{usuarioRecibido.nombre}},{{usuarioRecibido.apellido}}</p>
+            <h2>Celular:</h2><p>{{usuarioRecibido.celular}}</p>
+            <h2>Libros Prestados:</h2>
+                @if (usuarioRecibido.libros && usuarioRecibido.libros.length > 0) {
+                    <ul>
+                        @for (libro of usuarioRecibido.libros; track libro.nombreLibro) {
+                        <li>
+                            <strong>{{ libro.nombreLibro }}</strong> 
+                            </li>
+                        }
+                    </ul>
+                } @else {
+                    <p>Este usuario no tiene libros prestados actualmente.</p>
+                }
+            <h2>Fecha de prestamo:</h2><p>{{usuarioRecibido.fechaPrestado | date:'dd/MM/yyyy'}}</p>
+            <h2>fecha de entrega:</h2><p>{{usuarioRecibido.fechaEntrega| date:'dd/MM/yyyy'}}</p>
+        </div>
+    </div>
+    
+
+</div>

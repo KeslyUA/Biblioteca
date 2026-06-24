@@ -1,0 +1,40 @@
+<div style="display: flex;flex-direction: column;place-items: center;">
+    <h2 >Editar Usuario</h2>
+    <div style="display: flex;text-align: center;">
+      <mat-dialog-content>
+        <mat-form-field class="example-full-width">
+          <mat-label>Nombre</mat-label>
+          <input matInput placeholder="nombre" [(ngModel)]="data.nombre">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Apellido</mat-label>
+          <input matInput placeholder="tipo" [(ngModel)]="data.apellido">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Dni</mat-label>
+          <input matInput placeholder="autor" [(ngModel)]="data.dni">
+        </mat-form-field>
+
+        <mat-form-field class="example-full-width">
+          <mat-label>Celular</mat-label>
+          <input matInput placeholder="autor" [(ngModel)]="data.celular">
+        </mat-form-field>
+          <th></th>
+          <mat-label>Libro:</mat-label>
+          <p [style.color]="data.libros.length > 0 ? 'green' : 'red'">
+            Libro Seleccionado: {{
+              data.libros.length > 0? data.libros[0].nombreLibro + ' (+' + (data.libros.length - 1) + ' más)' 
+              : 'Ninguno'}}
+          </p>
+          <button mat-button class="btn-buscar" (click)="editarLibro()">Seleccionar Libro</button>
+
+      </mat-dialog-content>
+    </div>
+
+<mat-dialog-actions>
+  <button mat-button class="btn-cancelar" (click)="cerrarDialog()">Cancelar</button>
+  <button mat-raised-button class="btn-guardar" (click)="guardar()" cdkFocusInitial>Guardar</button>
+</mat-dialog-actions>
+</div>

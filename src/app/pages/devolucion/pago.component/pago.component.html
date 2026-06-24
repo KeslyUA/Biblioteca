@@ -1,0 +1,44 @@
+<div class="fondo-pago" >
+    <div class="cuerpo">
+    
+        <h1 >Penalizacion</h1>
+        <br>
+        <span><b>Usuario: </b>{{usuario.nombre}}</span>
+        <span><b>Fecha de entrega:</b> {{usuario.fechaEntrega | date:'dd/mm/yyyy'}}</span>
+        <span><b>Monto por retraso de entrega:</b> {{montoMoro}}</span>
+        
+        @if(data !=0){
+            <span>"Aplicación de multa por libro devuelto en mal estado o extraviado"</span>
+            <b>Monto a cobrar:</b>
+            <p>S/ {{data + montoMoro}}</p>
+            <b>Proceso de pago:</b>
+        }@else {
+            <b>Lista de libros devueltos:</b>
+            @for(libro of usuario.libros ;track libro.idLibro){
+                <p class="check"><mat-icon>check</mat-icon> {{libro.nombreLibro}}</p>
+            }
+            <p>Libros devueltos en buen estado</p>
+        }
+        
+        
+    </div>
+    
+    <div class="qr">
+        @if (data !=0) {
+        <p>Generar QR:</p>
+        
+            <qrcode 
+                [qrdata]="datosYape" 
+                [width]="256" 
+                [errorCorrectionLevel]="'M'">
+            </qrcode>
+
+        <p>Escanea el código desde tu app móvil</p>    
+        }
+            <button mat-flat-button color="accent" style="width: 150px;" (click)="cancelado()">Confirmar <mat-icon>list_alt_check</mat-icon></button>
+        
+
+    </div>
+    
+    
+</div>

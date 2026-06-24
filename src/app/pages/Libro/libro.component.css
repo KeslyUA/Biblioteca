@@ -1,0 +1,37 @@
+.fondo{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.btn-registrar{
+  width: 200px;
+  height: 40px;
+  font-size: 15px;
+}
+table {
+  width: 100%;
+}
+.contenedor{
+  width: 70%;
+}
+.sect{
+  display: flex;
+  gap: 40%;
+  justify-content: center;
+}
+
+.mat-mdc-form-field {
+  font-size: 14px;
+  width: 50%;
+}
+.btn-registrar{
+  color: white !important;
+}
+.filtro{
+  width: 300px;
+}

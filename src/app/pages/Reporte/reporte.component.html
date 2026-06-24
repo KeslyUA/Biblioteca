@@ -1,0 +1,70 @@
+<div class="fondo-reporte">
+    <a id="a"></a>
+    <div class="encabezado">
+        <button mat-raised-button class="descargar" (click)="descargar()" color="accent"><span>Descargar Reporte</span><mat-icon>download</mat-icon></button>
+        
+    </div>
+    <mat-form-field appearance="outline">
+        <mat-label>Selecciona opcion</mat-label>
+        <mat-select [formControl]="seleccionado">
+            <mat-option value="1">Activos</mat-option>
+            <mat-option value="2">Morosos</mat-option>
+            <mat-option value="3">Todos</mat-option>
+        </mat-select>
+    </mat-form-field>
+    
+    <div class="sup">
+        <mat-form-field class="filter" appearance="outline">
+            <mat-icon matPrefix class="icono-buscar">search</mat-icon>
+                    
+            <input matInput 
+                (keyup)="filterReporte($event)" 
+                placeholder="Buscar..." 
+                #input>
+        </mat-form-field>
+    </div>
+    
+    <table class="cuerpo">
+        <thead>
+            <tr>
+                <th>Nombre</th>
+                <th>Apellido</th>
+                <th>Dni</th>
+                <th>Fecha Entrega</th>
+                <th>Alerta</th>
+                <th></th>
+            </tr>
+        </thead>
+        
+        <tbody>
+            
+             @for (item of paginas; track item.idUsuario){
+            <tr >
+                <td>{{item.nombre}}</td>
+                <td>{{item.apellido}}</td>
+                <td>{{item.dni}}</td>
+                <td id="fecha">{{item.fechaEntrega | date:'dd/MM/yyyy' }}</td>
+                <td class="alerta"><mat-icon [style.Color]="alerta(item)">@if(estado(item)){timer}@else{timer_off}</mat-icon></td>
+                <td><a matButton="outlined" routerLink="/detalle"  (click)="info(item)">Detalles</a></td>
+            </tr>}@empty {
+                <tr>
+                    <td colspan="4">No hay usuarios</td>
+                </tr>
+            }
+
+        </tbody>
+        
+    </table>
+    <div class="cont-flecha">
+        <div>
+            <p>Pg. {{paginadorText()}}</p>
+        </div>
+        <button [disabled]="fin > 5 ? false :true" (click)="paginador('atras')"  >
+            <mat-icon >keyboard_arrow_left</mat-icon>
+        </button>
+        <button [disabled]="fin < listarUsuariosFiltrados.length && paginas.length >4 ? false : true" (click)="paginador('siguiente')" >
+            <mat-icon >keyboard_arrow_right</mat-icon>
+        </button>
+        
+    </div>
+</div>
