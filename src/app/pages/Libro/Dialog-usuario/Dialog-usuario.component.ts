@@ -71,7 +71,7 @@ export class DialogUsuario{
          if(!this.data.libros){
           this.data.libros = []
         }
-          const f = this.data.libros.push(resultado);console.log("ga",this.data.libros)
+          const f = this.data.libros.push(resultado);
         
       }
       this.cd.detectChanges();

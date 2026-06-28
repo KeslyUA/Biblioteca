@@ -38,7 +38,6 @@ export class Libro implements OnInit {
   ngOnInit(){
     this.libroService.obtenerLibros().subscribe(data=>{
       this.dataSource.data = data;
-      console.log("auu",data)
     });
   }
   @ViewChild(MatPaginator) paginator!: MatPaginator;

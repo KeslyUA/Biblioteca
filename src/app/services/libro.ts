@@ -6,7 +6,7 @@ import { Injectable } from '@angular/core';
 })
 export class LibroService {
 
-  private apiUrl="http://localhost:8080/api/libro"
+  private apiUrl="https://biblioteca-back-gsi1.onrender.com/api/libro"
   constructor(private http: HttpClient) { }
 
 obtenerLibros(){

@@ -42,13 +42,11 @@ export class DevolucionComponent {
     })
   }
   seleccionar(id:number,libroSelec:any){
-    console.log("id",id)
     this.libroService.obtenerLibros().subscribe(libro => {
       const libroFiltrado = libro.find(f => f.id == libroSelec.id)
       this.libroSeleccionado = libroFiltrado;
       
       const existe = this.lista.includes(id);
-      console.log("valor",existe)
       existe == true ? this.libro=true : this.libro=false;
       
       this.cd.detectChanges();
@@ -70,7 +68,6 @@ export class DevolucionComponent {
    if(this.lista.length == this.filtrado?.libros.length){
     this.siguiente = true;
    }
-   console.log("gaa",this.siguiente)
    return this.libro =true 
   }
  

@@ -55,7 +55,7 @@ export class Reporte {
             })
             this.listarUsuariosFiltrados = [...this.listarUsuario]
             this.paginas= this.listarUsuariosFiltrados.slice(0,5)
-            this.cd.detectChanges();console.log("fecha",this.listarUsuario)
+            this.cd.detectChanges();
         })
         
         this.seleccionado.valueChanges.subscribe((valorDetectado) =>{
