@@ -9,7 +9,7 @@ import { Observable } from "rxjs";
 export class UsuarioService{
     
 
-    private apiUrl ="http://localhost:8080/api/usuario";
+    private apiUrl ="https://biblioteca-back-gsi1.onrender.com/api/usuario";
     private urlReporte ="http://localhost:8080/api/reporte";
     constructor(private http:HttpClient){}
 
